@@ -1,0 +1,45 @@
+# Default ignored files (PyCharm/IDE-related)
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+env3/
+.venv/
+# Virtual environment config files
+pip-lock.txt
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE-specific (e.g., PyCharm, VS Code)
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+
+# Runtime data
+*.log
+*.pid
+*.out
+
+# Dependency lock files (if using)
+poetry.lock
+Pipfile.lock
