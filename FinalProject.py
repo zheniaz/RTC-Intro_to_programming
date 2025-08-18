@@ -69,3 +69,6 @@ def read_user_input():
             # Peter implement Exit
             print("Exiting...")
             break
+
+# Peter - implement file reading: converting JSON to Task[]
+# Caleb - implement file writing: converting Task[] to JSON
