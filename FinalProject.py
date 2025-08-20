@@ -35,6 +35,11 @@ def get_task_by_id(id):
             return task
     return None
 
+def assure_string(prompt):
+    string = input(prompt)
+    while string == "":
+        string = input(prompt)
+    return string
 
 def read_user_input():
     while True:
