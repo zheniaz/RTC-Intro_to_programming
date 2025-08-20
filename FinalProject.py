@@ -69,3 +69,5 @@ def read_user_input():
             # Peter implement Exit
             print("Exiting...")
             break
+
+read_user_input() # runs the main loop
