@@ -70,6 +70,24 @@ def edit_task(which_task):
 
     print("Task updated.")
 
+def remove_task():
+    if not tasks:
+        print("No tasks to remove.")
+        return
+
+    task_id = input("Enter task ID to remove: ").strip()
+    task = get_task_by_id(task_id)
+
+    if task:
+        tasks.remove(task)
+        print(f"Task '{task.title}' removed.")
+    else:
+        print("No task found with that ID.")
+
+def exit_program():
+    print("Exiting...")
+    exit()
+
 def get_task_by_id(id):
     for task in tasks:
         if task.task_id == id:
@@ -93,6 +111,8 @@ def read_user_input():
             "4. Remove task\n"
             "5. Exit"
         )
+
+
 
         choice = input("Enter your choice: ").strip()
 
@@ -127,11 +147,11 @@ def read_user_input():
 
         elif choice == "4":
             # Peter implement remove_task() function
-            print("Remove task not implemented yet.")
+            remove_task()
 
         elif choice == "5":
             # Peter implement Exit
-            print("Exiting...")
+            remove_task()
             break
 
 read_user_input() # runs the main loop
