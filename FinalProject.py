@@ -13,32 +13,25 @@ class Task:
     def __str__(self):
         return f"{self.title} ({self.status}) - {self.created_at} - {self.updated_at} - {self.task_id}"
 
-"""
+
 class TaskStatus:
     TODO = "todo"
     IN_PROGRESS = "in_progress"
     DONE = "done"
-"""
 
-taskStatus = [
-    "todo", #to do status
-    "in_progress", #in progress status
-    "done", #done status
-]
 
 tasks = []
 
 def add_task():
     title = input("Enter task title: ").strip()
     description = input("Enter task description: ").strip()
-    #status = TaskStatus.TODO
-    status = taskStatus[0]
+    status = TaskStatus.TODO
 
     new_task = Task(title, description, status)
     tasks.append(new_task)
     print("Task added.")
 
-def edit_task(which_task):
+def edit_task(current_task):
     print(
         "\nChoose an option:\n"
         "1. Change status\n"
@@ -49,9 +42,9 @@ def edit_task(which_task):
         print("Invalid selection.")
         choice = input("Enter your choice: ").strip()
 
-    print("Editing task ", tasks[which_task].title)
+    print("Editing task ", current_task.title)
     if choice == "1":
-        print("Current status: ", tasks[which_task].status)
+        print("Current status: ", current_task.status)
         print(
             "\nStatus Options:"
             "\n1. todo"
@@ -63,12 +56,14 @@ def edit_task(which_task):
             print("Invalid status.")
             newStatus = input("Enter new status: ").strip()
 
-        tasks[which_task].status = taskStatus[int(newStatus)-1]
+        status_list = [TaskStatus.TODO, TaskStatus.IN_PROGRESS, TaskStatus.DONE]
+        current_task.status = status_list[int(newStatus)-1]
     elif choice == "2":
-        tasks[which_task].title = input("Enter new task title: ").strip()
-        tasks[which_task].description = input("Enter new task description: ").strip()
+        current_task.title = input("Enter new task title: ").strip()
+        current_task.description = input("Enter new task description: ").strip()
 
     print("Task updated.")
+
 
 def remove_task():
     if not tasks:
@@ -127,23 +122,16 @@ def read_user_input():
             add_task()
 
         elif choice == "3":
-            which = input("Enter task name or number: ")
+            if tasks:
+                task_id = input("Enter task ID to edit: ").strip()
+                current_task = get_task_by_id(task_id)
 
-            # If input is a number
-            if which.isdigit():
-                index = int(which) - 1  # user sees 1-based, we store 0-based
-                if 0 <= index < len(tasks):
-                    edit_task(index)
+                if current_task:
+                    edit_task(current_task)
                 else:
-                    print("Invalid task number.")
-
-            # If input is task title
+                    print("No task found with that ID.")
             else:
-                index = next((i for i, t in enumerate(tasks) if t.title == which), None)
-                if index is not None:
-                    edit_task(index)
-                else:
-                    print("Invalid task name.")
+                print("No tasks to modify.")
 
         elif choice == "4":
             # Peter implement remove_task() function
