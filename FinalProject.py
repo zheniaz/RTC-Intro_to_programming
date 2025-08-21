@@ -64,7 +64,6 @@ def edit_task(current_task):
 
     print("Task updated.")
 
-
 def remove_task():
     if not tasks:
         print("No tasks to remove.")
@@ -139,7 +138,7 @@ def read_user_input():
 
         elif choice == "5":
             # Peter implement Exit
-            remove_task()
+            exit_program()
             break
 
 read_user_input() # runs the main loop
