@@ -1,3 +1,10 @@
+"""
+
+This project is a command-line To-Do list by Peter Zghurovets, Yehven Zgurovets, and Caleb McDougall
+Here is a link to the GitHub repo where we worked on it:
+https://github.com/zheniaz/RTC-Intro_to_programming/edit/main/FinalProject.py
+
+"""
 import uuid
 from datetime import datetime
 
