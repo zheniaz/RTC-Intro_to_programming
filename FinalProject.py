@@ -19,7 +19,7 @@ class TaskStatus:
     IN_PROGRESS = "in_progress"
     DONE = "done"
 
-
+# The task list should be converted to a dictionary to enable faster access by ID.
 tasks = []
 
 def add_task():
